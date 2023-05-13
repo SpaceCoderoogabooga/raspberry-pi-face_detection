@@ -1,4 +1,5 @@
 import cv2
+import cProfile
 import keyboard
 import face_recognition
 
@@ -6,15 +7,7 @@ cap = cv2.VideoCapture(0)
 armed = False
 
 
-if not cap.isOpened():
-    print("Cannot open camera")
-    exit()
-while True:
-    ret, frame = cap.read()
-    if not ret:
-        print("Can't receive frame (stream end?). Exiting ...")
-        break
-
+def cycle(frame):
     armed = False
     cv2.imwrite("frame.jpg", frame)  # save frame as JPEG file
     image = face_recognition.load_image_file("frame.jpg")
@@ -56,7 +49,21 @@ while True:
     else:
         cv2.imshow('frame', frame)
 
-    if cv2.waitKey(1) == ord('q'):
-        break
-cap.release()
-cv2.destroyAllWindows()
+
+def main():
+    if not cap.isOpened():
+        print("Cannot open camera")
+        exit()
+    for i in range(600):
+        ret, frame = cap.read()
+        if not ret:
+            print("Can't receive frame (stream end?). Exiting ...")
+            break
+        cycle(frame)
+        if cv2.waitKey(1) == ord('q'):
+            break
+    cap.release()
+    cv2.destroyAllWindows()
+
+
+cProfile.run('main()')
