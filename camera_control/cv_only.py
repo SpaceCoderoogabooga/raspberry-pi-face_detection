@@ -8,8 +8,7 @@ armed = False
 
 def cycle(frame):
     armed = False
-    face_cascade = cv2.CascadeClassifier('haarcascade_frontalface_default.xml')
-
+    face_cascade = cv2.CascadeClassifier(cv2.data.haarcascades + 'haarcascade_frontalface_default.xml')
     # Convert into grayscale
     # Detect faces
     cv2.imwrite("frame.jpg", frame)  # save frame as JPEG file
@@ -57,7 +56,7 @@ def main():
     if not cap.isOpened():
         print("Cannot open camera")
         exit()
-    for i in range(60):
+    while True:
         ret, frame = cap.read()
         if not ret:
             print("Can't receive frame (stream end?). Exiting ...")
