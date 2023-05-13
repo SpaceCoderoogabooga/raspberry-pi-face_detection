@@ -54,7 +54,7 @@ def main():
     if not cap.isOpened():
         print("Cannot open camera")
         exit()
-    for i in range(600):
+    for i in range(60):
         ret, frame = cap.read()
         if not ret:
             print("Can't receive frame (stream end?). Exiting ...")
