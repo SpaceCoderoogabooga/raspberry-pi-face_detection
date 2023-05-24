@@ -11,15 +11,10 @@ def map_room():
 
     motor_functions.change_position(current_x_position, current_y_position)
     map = {}
-    for i in range(1000):
-        if current_x_position < 12:
-            current_x_position += delta_x
-        else:
-            current_x_position -= delta_x
-        if current_y_position < 12:
-            current_y_position += delta_y
-        else:
-            current_y_position -= delta_y
+    print('starting mapping')
+    while True:
+        current_x_position += delta_x
+        current_y_position += delta_y
         motor_functions.change_position(current_x_position, current_y_position)
         distance = range_finder.distance()
         map[current_x_position] = distance
