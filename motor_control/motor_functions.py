@@ -26,7 +26,7 @@ def change_position(x, y):
     time.sleep(0.1)
     servo1.ChangeDutyCycle(round(x, 2))
     servo2.ChangeDutyCycle(round(y, 2))
-
+    time.sleep(1)
 
 def main():
     x_position = 0
