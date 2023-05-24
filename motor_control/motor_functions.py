@@ -25,8 +25,7 @@ def change_position(x, y):
     global servo2
     global current_x_position
     global current_y_position
-    current_x_position += x
-    current_y_position += y
+
     time.sleep(0.1)
     servo1.ChangeDutyCycle(round(current_x_position, 2))
     servo2.ChangeDutyCycle(round(current_y_position, 2))
