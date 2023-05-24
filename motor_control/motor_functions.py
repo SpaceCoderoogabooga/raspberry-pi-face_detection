@@ -21,6 +21,8 @@ current_x_position = 0
 current_y_position = 0
 
 def change_position(x, y):
+    global servo1
+    global servo2
     global current_x_position
     global current_y_position
     current_x_position += x
