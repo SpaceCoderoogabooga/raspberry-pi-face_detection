@@ -1,7 +1,7 @@
 import time
 import range_finder
 import motor_functions
-
+from numpy import linspace
 range_finder.startup_lidar()
 
 def map_room():
@@ -9,7 +9,11 @@ def map_room():
     current_y_position = 0
     delta_x = 0.1
     delta_y = 0
-    x_range = range(3, 9, 0.1)
+    x_range = []
+    x = 3
+    for i in range(30, 90):
+        x_range.append(round(x, 1))
+        x += 0.1
     print(x_range)
 
     motor_functions.change_position(current_x_position, current_y_position)
