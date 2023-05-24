@@ -25,6 +25,6 @@ def map_room():
         map[current_x_position] = distance
         print(map)
 
-
+motor_functions.change_position(0, 0)
 map_room()
 motor_functions.change_position(0, 0)
