@@ -1,3 +1,4 @@
+import time
 import range_finder
 import motor_functions
 
@@ -11,6 +12,7 @@ def map_room():
 
     motor_functions.change_position(current_x_position, current_y_position)
     map = {}
+    time.sleep(15)
     print('starting mapping')
     while True:
         current_x_position += delta_x
