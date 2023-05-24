@@ -3,19 +3,19 @@ import time
 import keyboard
 import random
 
-def startup_motor():
-    # Set GPIO numbering mode
-    GPIO.setmode(GPIO.BOARD)
 
-    # Set pins 11 & 12 as outputs, and define as PWM servo1 & servo2
-    GPIO.setup(11,GPIO.OUT)
-    servo1 = GPIO.PWM(11,50) # pin 11 for servo1
-    GPIO.setup(12,GPIO.OUT)
-    servo2 = GPIO.PWM(12,50) # pin 12 for servo2
+# Set GPIO numbering mode
+GPIO.setmode(GPIO.BOARD)
 
-    # Start PWM running on both servos, value of 0 (pulse off)
-    servo1.start(0)
-    servo2.start(0)
+# Set pins 11 & 12 as outputs, and define as PWM servo1 & servo2
+GPIO.setup(11,GPIO.OUT)
+servo1 = GPIO.PWM(11,50) # pin 11 for servo1
+GPIO.setup(12,GPIO.OUT)
+servo2 = GPIO.PWM(12,50) # pin 12 for servo2
+
+# Start PWM running on both servos, value of 0 (pulse off)
+servo1.start(0)
+servo2.start(0)
 
 current_x_position = 0
 current_y_position = 0
@@ -23,12 +23,9 @@ current_y_position = 0
 def change_position(x, y):
     global servo1
     global servo2
-    global current_x_position
-    global current_y_position
-
     time.sleep(0.1)
-    servo1.ChangeDutyCycle(round(current_x_position, 2))
-    servo2.ChangeDutyCycle(round(current_y_position, 2))
+    servo1.ChangeDutyCycle(round(x, 2))
+    servo2.ChangeDutyCycle(round(y, 2))
 
 
 def main():
