@@ -1,7 +1,6 @@
 import range_finder
 import motor_functions
 
-motor_functions.startup_motor()
 range_finder.startup_lidar()
 
 def map_room():
