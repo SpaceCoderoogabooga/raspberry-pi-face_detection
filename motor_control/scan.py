@@ -25,3 +25,7 @@ def map_room():
         distance = range_finder.distance()
         map[current_x_position] = distance
         print(map)
+
+
+map_room()
+motor_functions.change_position(0, 0)
