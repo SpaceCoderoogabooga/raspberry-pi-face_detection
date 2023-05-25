@@ -9,8 +9,8 @@ def calibrate():
     x_range = []
     y_range = []
     range_len = len(x_range)
-    x = 4
-    y = 4
+    x = 1
+    y = 0
     for i in range(40, 60):
         x_range.append(round(x, 1))
         y_range.append(round(x, 1))
