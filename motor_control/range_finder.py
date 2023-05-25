@@ -35,7 +35,7 @@ def distance():
     # and divide by 2, because there and back
     distance = (TimeElapsed * 34300) / 2
 
-    return distance
+    return int(distance)
 
 
 if __name__ == '__main__':
