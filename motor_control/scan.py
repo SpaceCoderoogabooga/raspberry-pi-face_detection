@@ -16,13 +16,13 @@ def calibrate():
         y_range.append(round(x, 1))
         x += 0.1
         y += 0.1
-    for i in range_len:
+    for i in x_range:
         motor_functions.change_position(0, i)
-    for i in range_len:
+    for i in x_range:
         motor_functions.change_position(i, range_len)
-    for i in range_len:
+    for i in x_range:
         motor_functions.change_position(range_len, -i)
-    for i in range_len:
+    for i in x_range:
         motor_functions.change_position(0, 0)
 
 def map_room():
