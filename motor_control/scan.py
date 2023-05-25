@@ -17,13 +17,8 @@ def calibrate():
         x += 0.1
         y += 0.1
     for i in x_range:
-        motor_functions.change_position(0, i)
-    for i in x_range:
-        motor_functions.change_position(i, range_len)
-    for i in x_range:
-        motor_functions.change_position(range_len, -i)
-    for i in x_range:
-        motor_functions.change_position(0, 0)
+        motor_functions.change_position(i, i)
+
 
 def map_room():
     current_x_position = 0
